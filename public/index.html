@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D3.js фильтры | vizvamitra@gmail.com</title>
+    <meta charset="UTF-8">
+    <script src='js/vendor/jquery-1.11.2.min.js' type='text/javascript'></script>
+    <link href='css/vendor/bootstrap.min.css' rel='stylesheet'>
+    <script src='js/vendor/bootstrap.min.js' type='text/javascript'></script>
+    <script src='js/vendor/d3.min.js' type='text/javascript'></script>
+    <link href='css/app.css' rel='stylesheet'>
+  </head>
+
+  <body>
+    <section class='container' id='wrapper'>
+      <div class='row' id='main'>
+        <div class='col-sm-3' id='controls'>
+          <form class='form'>
+            <div class='form-group'>
+              <label for='freq'>Частота, Гц</label>
+              <input class='form-control' id='freq' name='freq' type='number' value='2000'>
+            </div>
+            <div class='form-group'>
+              <label for='interval'>Интервал времени, мсек</label>
+              <input class='form-control' id='interval' name='interval' type='number' value='3'>
+            </div>
+            <div class='form-group'>
+              <label for='out-size'>Плотность выборки</label>
+              <input class='form-control' id='out-size' name='out-size' type='number' value='200'>
+            </div>
+            <button class='btn btn-primary' type='submit'>Перерисовать</button>
+          </form>
+        </div>
+        <div class='col-sm-9' id='canvas'></div>
+      </div>
+    </section>
+    <script src='js/generator.js' type='text/javascript'></script>
+    <script src='js/filter.js' type='text/javascript'></script>
+    <script src='js/visualizer.js' type='text/javascript'></script>
+    <script src='js/controls.js' type='text/javascript'></script>
+    <script src='js/app.js' type='text/javascript'></script>
+  </body>
+</html>
