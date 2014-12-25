@@ -1,21 +1,14 @@
-var width = $('#canvas').width();
-var height = $('#canvas').height();
-var canvas = d3.select("#canvas").append("svg")
-  .attr("width", width)
-  .attr("height", height);
+var config = {
+  freq: 1000,
+  outSize: 300,
+  interval: 2
+};
 
-var group = canvas.append("g")
-  .attr("transform", "translate(100, 100)");
+Visualizer.init();
+Generator.setup(config);
 
-var r = 100;
-var p = Math.PI * 2;
+var input = Generator.generate();
+var output = Filter.filter(input);
 
-var arc = d3.svg.arc() // создаём path generator арок
-  .innerRadius(r-20)
-  .outerRadius(r)
-  .startAngle(0)
-  .endAngle(p-1)
-
-group.append("path")
-  .attr("d", arc)
-  .attr("fill", "red")
+Visualizer.drawSignal(0, input);
+Visualizer.drawSignal(1, output);

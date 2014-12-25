@@ -20,7 +20,7 @@ window.Generator = {
 
     while(t<=this.interval){
       val = Math.sin((tpm*t) * rads);
-      out.push( Math.round(val * 0x7fff) );
+      out.push( {t: t, y: Math.round(val * 0x7fff)} );
       t += dt;
     }
     return out;
