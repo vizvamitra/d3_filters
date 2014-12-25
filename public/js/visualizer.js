@@ -45,8 +45,13 @@ window.Visualizer = {
   },
 
   _getScale: function(data, attr, range){
-    var min = d3.min(data, function(d){ return d[attr]; });
-    var max = d3.max(data, function(d){ return d[attr]; });
+    if (attr === 't'){
+      var min = d3.min(data, function(d){ return d[attr]; });
+      var max = d3.max(data, function(d){ return d[attr]; });
+    } else if (attr === 'y') {
+      var min = -0x7fff;
+      var max = 0x7fff;
+    }
 
     return d3.scale.linear()
       .domain([min, max])
@@ -68,7 +73,7 @@ window.Visualizer = {
         .attr("d", line)
         .attr("fill", "none")
         .attr("stroke", color)
-        .attr("stroke-width", 5);
+        .attr("stroke-width", 3);
   },
 
   _drawAxes: function(group, tScale, yScale){
