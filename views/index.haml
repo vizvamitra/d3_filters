@@ -1,7 +1,14 @@
 .row#main
   .col-sm-3#controls
-    %input{type: 'text'}
-    %br
-    %br
-    %input{type: 'text'}
+    %form.form
+      .form-group
+        %label{for: 'freq'} Частота
+        %input.form-control#freq{type: 'number', name: 'freq', value: 2000}
+      .form-group
+        %label{for: 'interval'} Интервал времени
+        %input.form-control#interval{type: 'number', name: 'interval', value: 3}
+      .form-group
+        %label{for: 'out-size'} Плотность выборки
+        %input.form-control#out-size{type: 'number', name: 'out-size', value: 200}
+      %button.btn.btn-primary{type: 'submit'} Перерисовать
   .col-sm-9#canvas

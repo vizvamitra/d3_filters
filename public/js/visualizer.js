@@ -10,10 +10,14 @@ window.Visualizer = {
     this.canvas = d3.select("#canvas").append("svg")
       .attr("width", this.width)
       .attr("height", this.height);
-    this.groups[0] = this.canvas.append("g")
-      .attr("transform", "translate(60,0)");
-    this.groups[1] = this.canvas.append("g")
-      .attr("transform", "translate(60, "+this.height/2+")");
+    this._createGroups();
+  },
+
+  clear: function(){
+    for(var i=0; i<this.groups.length; i++){
+      this.groups[i].remove();
+    }
+    this._createGroups();
   },
 
   drawSignal: function(num, data){
@@ -25,6 +29,13 @@ window.Visualizer = {
 
     this._drawPath(data, group, line, color);
     this._drawAxes(group, tScale, yScale)
+  },
+
+  _createGroups: function(){
+    this.groups[0] = this.canvas.append("g")
+      .attr("transform", "translate(60,0)");
+    this.groups[1] = this.canvas.append("g")
+      .attr("transform", "translate(60, "+this.height/2+")");
   },
 
   _getLine: function(tScale, yScale){
@@ -49,7 +60,8 @@ window.Visualizer = {
   },
 
   _drawPath: function(data, group, line, color){
-    group.selectAll("path")
+    group.append("g")
+      .selectAll("path")
       .data([data])
       .enter()
         .append("path")

@@ -1,14 +1,23 @@
-var config = {
-  freq: 1000,
-  outSize: 300,
-  interval: 2
+window.App = {
+  init: function(config){
+    Visualizer.init();
+    Controls.init();
+    Generator.setup(config);
+  },
+
+  draw: function(){
+    var input = Generator.generate();
+    var output = Filter.filter(input);
+
+    Visualizer.drawSignal(0, input);
+    Visualizer.drawSignal(1, output);
+  }
+}
+
+var config = {freq: 2000,
+  outSize: 200,
+  interval: 3
 };
 
-Visualizer.init();
-Generator.setup(config);
-
-var input = Generator.generate();
-var output = Filter.filter(input);
-
-Visualizer.drawSignal(0, input);
-Visualizer.drawSignal(1, output);
+App.init(config);
+App.draw();
