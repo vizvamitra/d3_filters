@@ -1,5 +1,5 @@
 var width = $('#canvas').width();
-var height = 500;
+var height = $('#canvas').height();
 var canvas = d3.select("#canvas").append("svg")
   .attr("width", width)
   .attr("height", height);
