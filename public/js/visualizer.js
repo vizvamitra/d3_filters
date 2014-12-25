@@ -33,9 +33,9 @@ window.Visualizer = {
 
   _createGroups: function(){
     this.groups[0] = this.canvas.append("g")
-      .attr("transform", "translate(60,0)");
+      .attr("transform", "translate(60,10)");
     this.groups[1] = this.canvas.append("g")
-      .attr("transform", "translate(60, "+this.height/2+")");
+      .attr("transform", "translate(60, "+(this.height/2+10)+")");
   },
 
   _getLine: function(tScale, yScale){
