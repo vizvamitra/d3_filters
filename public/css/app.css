@@ -1,0 +1,9 @@
+#main{
+  height: 500px;
+}
+
+#controls, #canvas{
+  height: 100%;
+  outline: 1px dashed #bbb;
+  padding-top: 15px;
+}
